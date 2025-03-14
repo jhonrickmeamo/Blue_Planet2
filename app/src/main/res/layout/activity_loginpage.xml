@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginpage"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@drawable/bg"
+        android:layout_marginTop="260dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="130dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            android:background="@drawable/frosted_background"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="3dp">
+
+            <TextView
+                android:id="@+id/secondTextView"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:text="Blue Planet"
+                android:textStyle="bold|italic"
+                android:textSize="50sp"
+                android:textAlignment="center"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Water Refilling Station"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:shadowColor="#80000000"
+                android:layout_gravity="center"
+                android:layout_marginTop="-75dp"/>
+
+            <Button
+                android:id="@+id/btnEmployee"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:text="Employee"
+                android:backgroundTint="#0793D9"
+                android:textColor="@color/white"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="50dp"
+                android:shadowRadius="4"/>
+            <Button
+                android:id="@+id/btnCustomer"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:text="Customer"
+                android:backgroundTint="#0793D9"
+                android:textColor="@color/white"
+                android:layout_marginTop="190dp"
+                android:layout_marginLeft="50dp"
+                android:shadowRadius="4"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>
