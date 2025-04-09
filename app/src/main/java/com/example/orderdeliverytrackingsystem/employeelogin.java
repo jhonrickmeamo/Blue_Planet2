@@ -1,11 +1,13 @@
 package com.example.orderdeliverytrackingsystem;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -47,5 +49,11 @@ public class employeelogin extends AppCompatActivity {
 
         ImageButton backBttn = findViewById(R.id.backBtn);
         backBttn.setOnClickListener(v -> finish());
+    }
+
+    public void orderManaging(View view) {
+        Intent intent = new Intent(employeelogin.this, OrdersView.class);;
+        startActivity(intent);
+
     }
 }

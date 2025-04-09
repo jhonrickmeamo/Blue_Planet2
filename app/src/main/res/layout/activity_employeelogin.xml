@@ -134,7 +134,8 @@
                 android:layout_marginTop="350dp"
                 android:text="Login"
                 android:textSize="24sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:onClick="orderManaging"/>
 
         </LinearLayout>
 

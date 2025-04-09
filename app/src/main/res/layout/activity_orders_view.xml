@@ -58,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.057">
+        app:layout_constraintVertical_bias="0.057"
+        android:onClick="orderviewDetails">
 
         <TextView
             android:id="@+id/orderStatus"
@@ -66,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="211dp"
             android:layout_marginTop="110dp"
-            android:text="In Progress"
+            android:text=""
             android:textSize="10dp"
             tools:ignore="TextSizeCheck" />
 

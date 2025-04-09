@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.823" />
 
     <Button
-        android:id="@+id/orderStatus"
+        android:id="@+id/updateStatus"
         android:layout_width="119dp"
         android:layout_height="38dp"
         android:layout_marginTop="60dp"
@@ -46,7 +46,8 @@
         app:layout_constraintStart_toEndOf="@+id/orderNumber"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.618"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        android:onClick="updateorderstatus" />
 
     <TextView
         android:id="@+id/textView2"
@@ -115,10 +116,10 @@
         android:text="Customer"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.354" />
+        app:layout_constraintVertical_bias="0.515" />
 
     <TextView
         android:id="@+id/textView6"
@@ -127,10 +128,10 @@
         android:text="Delivery"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.583" />
 
     <TextView
         android:id="@+id/textView7"
