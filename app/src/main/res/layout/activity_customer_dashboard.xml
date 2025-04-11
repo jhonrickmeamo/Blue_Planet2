@@ -36,23 +36,24 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="70dp"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="220dp"
         android:text="Blue Planet"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="10dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginLeft="-20dp"/>
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:layout_width="117dp"
         android:layout_height="45dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="320dp"
         android:text="Catalog"
         android:textAlignment="center"
         android:textColor="#113C74"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="120dp"
-        android:textSize="32sp"/>
-    
+        android:textSize="32sp" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="111dp"
         android:layout_height="140dp"
@@ -70,9 +71,10 @@
             android:layout_marginBottom="10dp"/>
 
         <TextView
-            android:layout_width="120dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="105dp"
+            android:layout_marginLeft="25dp"
             android:textAlignment="center"
             android:text="Water Jag \nMineral"
             android:textColor="@color/black"/>
@@ -140,97 +142,76 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginBottom="50dp"
             android:gravity="center"
+            android:orientation="vertical"
             android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
                 android:text="Rate Your Experience"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="8dp"/>
+                android:textStyle="bold" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1.0"
-                android:rating="0"
                 android:isIndicator="false"
+                android:numStars="5"
                 android:progressTint="@color/white"
-                android:theme="@style/Widget.AppCompat.RatingBar.Indicator"/>
+                android:rating="0"
+                android:stepSize="1.0"
+                android:theme="@style/Widget.AppCompat.RatingBar.Indicator" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/bottomNavCard"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="740dp"
         android:backgroundTint="@color/white"
-        android:layout_marginTop="720dp"
-        app:cardElevation="5dp"
-        app:cardCornerRadius="10dp">
-        
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="30dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="5dp"
             android:backgroundTint="@color/white"
+            android:onClick="shop"
             android:src="@drawable/shop"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="10dp"/>
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:text="Shop"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="33dp"
-            android:textSize="10sp"/>
 
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/home"
-            android:layout_gravity="center"
-            android:layout_marginBottom="1dp"/>
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:text="Home"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="23dp"
-            android:textSize="10sp"/>
 
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/order"
             android:layout_gravity="end"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="85dp"
-            android:scaleType="centerCrop"/>
+            android:backgroundTint="@color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/order"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:text="Order"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:layout_marginLeft="230dp"
-            android:layout_marginTop="33dp"
-            android:textSize="10sp"/>
 
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

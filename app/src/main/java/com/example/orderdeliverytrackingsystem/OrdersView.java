@@ -30,7 +30,8 @@ public class OrdersView extends AppCompatActivity {
         });
         statusorder=findViewById(R.id.orderStatus);
     st=getIntent().getStringExtra("orderStatuss");
-statusorder.setText(st);
+    statusorder.setText(st);
+
     }
 
     public void orderviewDetails(View view) {

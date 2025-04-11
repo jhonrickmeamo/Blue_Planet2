@@ -105,6 +105,7 @@
             android:elevation="50dp"/>
 
             <EditText
+                android:id="@+id/username"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edit_text"
@@ -116,6 +117,7 @@
                 android:textColor="@color/black"/>
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edit_text"
@@ -127,6 +129,7 @@
                 android:textColor="@color/black"/>
 
             <Button
+                android:id="@+id/loginBtn"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="-300dp"
@@ -136,6 +139,7 @@
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:onClick="orderManaging"/>
+
 
         </LinearLayout>
 
