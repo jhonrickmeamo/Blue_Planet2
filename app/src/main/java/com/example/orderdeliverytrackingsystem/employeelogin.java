@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class employeelogin extends AppCompatActivity {
     private EditText usernameEditText, passwordEditText;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class employeelogin extends AppCompatActivity {
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         Button loginButton = findViewById(R.id.loginBtn);
+
 
         loginButton.setOnClickListener(v -> loginUser());
 
@@ -66,8 +70,7 @@ public class employeelogin extends AppCompatActivity {
     }
 
     public void orderManaging(View view) {
-        Intent intent = new Intent(employeelogin.this, OrdersView.class);;
-        startActivity(intent);
+
 
     }
     private void loginUser() {
@@ -88,9 +91,20 @@ public class employeelogin extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(employeelogin.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(employeelogin.this, OrdersView.class));
-                        finish();
+                        String userId = mAuth.getCurrentUser().getUid();
+                        db.collection("Users").document(userId).get().addOnCompleteListener(task1 -> {
+                            if (task1.isSuccessful() && task1.getResult() != null) {
+                                String role = task1.getResult().getString("role");
+                                if ("Employee".equalsIgnoreCase(role)) {
+                                    startActivity(new Intent(employeelogin.this, OrdersView.class));
+                                } else if ("Admin".equalsIgnoreCase(role)) {
+                                    startActivity(new Intent(employeelogin.this, adminPage.class));
+                                }
+                                finish();
+                            } else {
+                                Toast.makeText(employeelogin.this, "Failed to retrieve user role", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     } else {
                         Toast.makeText(employeelogin.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

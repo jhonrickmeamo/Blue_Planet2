@@ -27,6 +27,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="270dp"
             android:clickable="true"
+            android:onClick="employeeCreateAccount"
             app:srcCompat="@drawable/create_account_employee"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -50,6 +51,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/textView15"
         android:layout_width="244dp"
         android:layout_height="62dp"
         android:text="Employees"
@@ -61,5 +63,16 @@
         app:layout_constraintStart_toEndOf="@+id/cardView3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.156" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/employeerclrv"
+        android:layout_width="322dp"
+        android:layout_height="564dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintVertical_bias="0.049" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
