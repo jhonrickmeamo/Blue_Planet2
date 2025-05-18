@@ -10,11 +10,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
 
 public class OrdersView extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private orderviewlistsadapter adapter;
+    private ArrayList<orderviewlists> list;
+    private FirebaseFirestore db;
 
-    String st;
-    TextView statusorder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +37,38 @@ public class OrdersView extends AppCompatActivity {
 
 
         });
-        statusorder=findViewById(R.id.orderStatus);
-    st=getIntent().getStringExtra("orderStatuss");
-    statusorder.setText(st);
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        db = FirebaseFirestore.getInstance();
+        list = new ArrayList<>();
+        adapter = new orderviewlistsadapter(this, list);
+        recyclerView.setAdapter(adapter);
+        loadOrders();
+    }
+    public void loadOrders(){
+        db.collection("Customers").get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        list.clear();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            orderviewlists order = new orderviewlists();
+
+                            // Get order details
+                            order.setNumber(document.getString("number"));
+                            order.setFirstname(document.getString("firstName"));
+                            order.setLastname(document.getString("lastName"));
+                            order.setAddress(document.getString("address"));
+                            order.setStreet(document.getString("street"));
+                            order.setBarangay(document.getString("barangay"));
+                            order.setCity(document.getString("city"));
+                            order.setCustomerId(document.getId());  
+                            list.add(order);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     public void orderviewDetails(View view) {
