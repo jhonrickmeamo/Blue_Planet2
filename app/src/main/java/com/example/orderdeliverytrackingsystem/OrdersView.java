@@ -3,6 +3,7 @@ package com.example.orderdeliverytrackingsystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +26,8 @@ public class OrdersView extends AppCompatActivity {
     private FirebaseFirestore db;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,9 @@ public class OrdersView extends AppCompatActivity {
 
 
         });
+        Button btnRefresh = findViewById(R.id.btnRefresh);
+        btnRefresh.setOnClickListener(view -> refreshActivity());
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,6 +52,17 @@ public class OrdersView extends AppCompatActivity {
         adapter = new orderviewlistsadapter(this, list);
         recyclerView.setAdapter(adapter);
         loadOrders();
+
+
+
+    }
+    private void refreshActivity() {
+        // Recreate the activity
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+
     }
     public void loadOrders(){
         db.collection("Customers").get()
@@ -63,7 +80,8 @@ public class OrdersView extends AppCompatActivity {
                             order.setStreet(document.getString("street"));
                             order.setBarangay(document.getString("barangay"));
                             order.setCity(document.getString("city"));
-                            order.setCustomerId(document.getId());  
+                            order.setDocID(document.getId());
+
                             list.add(order);
                         }
                         adapter.notifyDataSetChanged();

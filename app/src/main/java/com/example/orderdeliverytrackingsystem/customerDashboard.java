@@ -34,4 +34,11 @@ public class customerDashboard extends AppCompatActivity {
         Intent intent = new Intent(this, shopePage.class);
         startActivity(intent);
     }
+
+    public void ordertrackactivity(View view) {
+        // Code to handle order tracking button click
+        // This could involve navigating to a different activity or updating the UI
+        Intent intent = new Intent(this, orderTrack.class);
+        startActivity(intent);
+    }
 }

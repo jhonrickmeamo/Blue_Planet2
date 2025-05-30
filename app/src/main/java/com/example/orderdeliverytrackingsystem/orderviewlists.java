@@ -10,10 +10,9 @@ public class orderviewlists implements Serializable {
     private String city;
     private String street;
 
-    private String customerId;
-    private String orderId;
 
-    private String product_name, quantity, price, total_price;
+
+    private String docID;
 
     public orderviewlists() {
     }
@@ -74,52 +73,12 @@ public class orderviewlists implements Serializable {
         this.street = street;
     }
 
-    public String getPrice() {
-        return price;
+    public String getDocID() {
+        return docID;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getTotal_price() {
-        return total_price;
-    }
-
-    public void setTotal_price(String total_price) {
-        this.total_price = total_price;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setDocID(String docID) {
+        this.docID = docID;
     }
 }
 
